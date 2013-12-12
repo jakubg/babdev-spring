@@ -45,7 +45,12 @@ public class Ad {
 	private Date publishedDate;
 	private Date expireDate;
 	private String objectId;
-	//private List<AdGroup> groups;
+	
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.PERSIST,
+            CascadeType.REFRESH })
+    @JoinTable(name = "T_AD_GROUP_T_AD", joinColumns = { @JoinColumn(name = "ad_id") },
+        inverseJoinColumns = { @JoinColumn(name = "ad_group_id") })
+	private List<AdGroup> groups;
 	private String heading;
 
 	@Column(name = "heading", unique = false, nullable = true, length = 1000)
@@ -134,11 +139,8 @@ public class Ad {
 	public void setObjectId(String objectId) {
 		this.objectId = objectId;
 	}
-/*
-    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.PERSIST,
-            CascadeType.REFRESH })
-    @JoinTable(name = "T_AD_GROUP_T_AD", joinColumns = { @JoinColumn(name = "ad_id") },
-        inverseJoinColumns = { @JoinColumn(name = "ad_group_id") })
+
+
 	public List<AdGroup> getGroups() {
 		return groups;
 	}
@@ -146,7 +148,7 @@ public class Ad {
 	public void setGroups(List<AdGroup> groups) {
 		this.groups = groups;
 	}
-	*/
+	
 	@Column(name = "active", nullable = false)
 	public boolean isActive() {
 		return active;

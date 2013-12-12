@@ -19,8 +19,6 @@ public class AdGroup {
 
     
     
-    
-    
 	public Integer getId() {
 		return id;
 	}
