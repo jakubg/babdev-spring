@@ -1,4 +1,4 @@
-package com.blogspot.babdev.bookapi.model;
+package pl.schibsted.oca.yaapi.model;
 
 import javax.persistence.*;
 import java.util.List;

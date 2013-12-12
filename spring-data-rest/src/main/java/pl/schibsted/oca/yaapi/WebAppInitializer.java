@@ -1,4 +1,4 @@
-package com.blogspot.babdev.bookapi;
+package pl.schibsted.oca.yaapi;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

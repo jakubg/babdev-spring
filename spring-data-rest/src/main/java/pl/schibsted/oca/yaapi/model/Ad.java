@@ -1,4 +1,4 @@
-package com.blogspot.babdev.bookapi.model;
+package pl.schibsted.oca.yaapi.model;
 
 import java.text.NumberFormat;
 import java.util.Date;
@@ -20,15 +20,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name="T_AD")
 public class Ad {
-	
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ad_id", nullable = false)
     private Integer id;
 
-    
-   
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -36,16 +36,18 @@ public class Ad {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	private Boolean active =  new Boolean(true);
-	
+
 	private String price;
 	private Date createdAt;
+	@Column(name = "modified", unique = false, nullable = false)
 	private Date modifiedAt;
 	private Date publishedDate;
+	@Column(name = "expire", nullable = false)
 	private Date expireDate;
 	private String objectId;
-	
+
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.PERSIST,
             CascadeType.REFRESH })
     @JoinTable(name = "T_AD_GROUP_T_AD", joinColumns = { @JoinColumn(name = "ad_id") },
@@ -103,8 +105,6 @@ public class Ad {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-	
-	@Column(name = "modified", unique = false, nullable = false)
 	public Date getModifiedAt() {
 		return modifiedAt;
 	}
@@ -121,8 +121,7 @@ public class Ad {
 	public void setPublishedDate(Date publishedDate) {
 		this.publishedDate = publishedDate;
 	}
-	
-	@Column(name = "expire", nullable = false)
+
 	public Date getExpireDate() {
 		return expireDate;
 	}
@@ -130,7 +129,7 @@ public class Ad {
 	public void setExpireDate(Date expireDate) {
 		this.expireDate = expireDate;
 	}
-	
+
 	@Column(name = "objectId", unique = false, nullable = true, length = 40)
 	public String getObjectId() {
 		return objectId;
@@ -148,7 +147,7 @@ public class Ad {
 	public void setGroups(List<AdGroup> groups) {
 		this.groups = groups;
 	}
-	
+
 	@Column(name = "active", nullable = false)
 	public boolean isActive() {
 		return active;
