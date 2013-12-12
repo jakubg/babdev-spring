@@ -8,7 +8,6 @@ import javax.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "BOOK")
 public class Book {
 
     @Id
