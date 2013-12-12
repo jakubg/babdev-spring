@@ -14,7 +14,8 @@ import org.springframework.data.rest.repository.annotation.RestResource;
 @RestResource(path = "adlists", rel = "adlists")
 public interface AdListRepository extends PagingAndSortingRepository<AdList, Long> {
 
-	Page<AdList> findByActive(boolean active, Pageable pageable);
+	public List<AdList> findByName(@Param("name") String name);
 
-	//public List<AdList> findByActive(boolean active);
+	public List<AdList> findByActive(@Param("active") boolean active);
+
 }
