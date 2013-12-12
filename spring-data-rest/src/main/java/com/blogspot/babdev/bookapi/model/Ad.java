@@ -24,12 +24,11 @@ public class Ad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ad_id", nullable = false)
     private Integer id;
 
     
-    @Id
-    @GeneratedValue
-    @Column(name = "ad_id", nullable = false)
+   
 	public Integer getId() {
 		return id;
 	}
@@ -45,7 +44,7 @@ public class Ad {
 	private Date publishedDate;
 	private Date expireDate;
 	private String objectId;
-	private List<AdGroup> groups;
+	//private List<AdGroup> groups;
 	private String heading;
 
 	@Column(name = "heading", unique = false, nullable = true, length = 1000)
@@ -134,7 +133,7 @@ public class Ad {
 	public void setObjectId(String objectId) {
 		this.objectId = objectId;
 	}
-
+/*
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.PERSIST,
             CascadeType.REFRESH })
     @JoinTable(name = "T_AD_GROUP_T_AD", joinColumns = { @JoinColumn(name = "ad_id") },
@@ -146,7 +145,7 @@ public class Ad {
 	public void setGroups(List<AdGroup> groups) {
 		this.groups = groups;
 	}
-	
+	*/
 	@Column(name = "active", nullable = false)
 	public boolean isActive() {
 		return active;

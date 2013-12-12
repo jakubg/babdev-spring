@@ -14,12 +14,13 @@ public class AdGroup {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ad_group_id", nullable = false)
     private Integer id;
 
     
-    @Id
-    @GeneratedValue
-    @Column(name = "ad_group_id", nullable = false)
+    
+    
+    
 	public Integer getId() {
 		return id;
 	}
