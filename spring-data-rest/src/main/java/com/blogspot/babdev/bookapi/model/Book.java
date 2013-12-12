@@ -3,9 +3,12 @@ package com.blogspot.babdev.bookapi.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
 import java.util.List;
 
 @Entity
+@Table(name = "BOOK")
 public class Book {
 
     @Id
