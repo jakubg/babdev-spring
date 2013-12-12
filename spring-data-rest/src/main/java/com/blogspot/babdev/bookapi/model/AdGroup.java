@@ -16,8 +16,9 @@ public class AdGroup {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ad_group_id", nullable = false)
     private Integer id;
-
-    
+    private String name;
+    private Boolean active = new Boolean(true);
+    //private List<Ad> ads;
     
 	public Integer getId() {
 		return id;
