@@ -27,8 +27,6 @@ public class Ad {
     @Column(name = "ad_id", nullable = false)
     private Integer id;
 
-
-
 	public Integer getId() {
 		return id;
 	}

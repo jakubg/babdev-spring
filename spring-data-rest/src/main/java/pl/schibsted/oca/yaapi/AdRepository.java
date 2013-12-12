@@ -14,5 +14,6 @@ public interface AdRepository extends PagingAndSortingRepository<Ad, Long> {
 
 	@RestResource(path = "active", rel = "active")
 	public Page<Ad> findByActiveTrue(Pageable pageable);
+
 	public Page<Ad> findByObjectId(@Param("objectId") String objectId, Pageable pageable);
 }

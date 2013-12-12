@@ -12,8 +12,10 @@ import pl.schibsted.oca.yaapi.model.AdList;
 @RestResource(path = "adlists", rel = "adlists")
 public interface AdListRepository extends PagingAndSortingRepository<AdList, Long> {
 
-	public List<AdList> findByName(@Param("name") String name);
 	@RestResource(path = "active", rel = "active")
 	public List<AdList> findByActiveTrue();
+
+	public List<AdList> findByName(@Param("name") String name);
+
 
 }

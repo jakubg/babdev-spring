@@ -15,8 +15,9 @@ import pl.schibsted.oca.yaapi.model.AdList;
 @RestResource(path = "adGroups", rel = "adGroups")
 public interface AdGroupRepository extends PagingAndSortingRepository<AdGroup, Long>  {
 
-	public List<AdList> findByName(@Param("name") String name);
-
+	@RestResource(path = "active", rel = "active")
 	public Page<AdList> findByActiveTrue(Pageable pageable);
+
+	public List<AdList> findByName(@Param("name") String name);
 
 }
