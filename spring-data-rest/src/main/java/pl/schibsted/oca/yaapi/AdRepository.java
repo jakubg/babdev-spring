@@ -16,4 +16,7 @@ public interface AdRepository extends PagingAndSortingRepository<Ad, Long> {
 	public Page<Ad> findByActiveTrue(Pageable pageable);
 
 	public Page<Ad> findByObjectId(@Param("objectId") String objectId, Pageable pageable);
+	
+	public Page<Ad> findHeadingContains(@Param("heading") String heading, Pageable pageable);
+	
 }
