@@ -38,6 +38,7 @@ public class Ad {
 		this.id = id;
 	}
 	
+	private boolean active;
 	private String price;
 	private Date createdAt;
 	private Date modifiedAt;
@@ -146,5 +147,14 @@ public class Ad {
 		this.groups = groups;
 	}
 	
+	@Column(name = "active", nullable = false)
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 
 }
