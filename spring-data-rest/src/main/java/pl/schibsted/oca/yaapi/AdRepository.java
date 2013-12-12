@@ -8,7 +8,6 @@ import org.springframework.data.rest.repository.annotation.RestResource;
 
 import pl.schibsted.oca.yaapi.model.Ad;
 
-
 @RestResource(path = "ads", rel = "ads")
 public interface AdRepository extends PagingAndSortingRepository<Ad, Long> {
 
@@ -16,7 +15,7 @@ public interface AdRepository extends PagingAndSortingRepository<Ad, Long> {
 	public Page<Ad> findByActiveTrue(Pageable pageable);
 
 	public Page<Ad> findByObjectId(@Param("objectId") String objectId, Pageable pageable);
-	
-	public Page<Ad> findHeadingContains(@Param("heading") String heading, Pageable pageable);
-	
+
+	public Page<Ad> findByHeadingContains(@Param("heading") String heading, Pageable pageable);
+
 }

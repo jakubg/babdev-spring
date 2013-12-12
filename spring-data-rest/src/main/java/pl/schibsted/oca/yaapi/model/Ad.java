@@ -26,34 +26,35 @@ public class Ad {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ad_id", nullable = false)
     private Integer id;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    @Column(name = "created", unique = false, nullable = true)
+    private Date createdAt;
+    @Column(name = "modified", unique = false, nullable = false)
+    private Date modifiedAt;
+    @Column(name = "published", nullable = true)
+    private Date publishedDate;
+    @Column(name = "expire", nullable = false)
+    private Date expireDate;
+    private String price;
+    private String objectId;
 
 	private Boolean active =  new Boolean(true);
-
-	private String price;
-	private Date createdAt;
-	@Column(name = "modified", unique = false, nullable = false)
-	private Date modifiedAt;
-	private Date publishedDate;
-	@Column(name = "expire", nullable = false)
-	private Date expireDate;
-	private String objectId;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.PERSIST,
             CascadeType.REFRESH })
     @JoinTable(name = "T_AD_GROUP_T_AD", joinColumns = { @JoinColumn(name = "ad_id") },
         inverseJoinColumns = { @JoinColumn(name = "ad_group_id") })
 	private List<AdGroup> groups;
+    @Column(name = "heading", unique = false, nullable = true, length = 1000)
 	private String heading;
 
-	@Column(name = "heading", unique = false, nullable = true, length = 1000)
+    public Integer getId() {
+    	return id;
+    }
+
+    public void setId(Integer id) {
+    	this.id = id;
+    }
+
 	public String getHeading() {
 		return heading;
 	}
@@ -95,7 +96,6 @@ public class Ad {
 		this.price = price;
 	}
 
-	@Column(name = "created", unique = false, nullable = true)
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -111,7 +111,6 @@ public class Ad {
 		this.modifiedAt = modifiedAt;
 	}
 
-	@Column(name = "published", nullable = true)
 	public Date getPublishedDate() {
 		return publishedDate;
 	}
