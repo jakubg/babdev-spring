@@ -14,6 +14,6 @@ import com.blogspot.babdev.bookapi.model.AdList;
 @RestResource(path = "ads", rel = "ads")
 public interface AdRepository extends PagingAndSortingRepository<Ad, Long> {
 	
-	Page<Ad> findByActive(@Param("active") boolean active, Pageable pageable);
+	public List<Ad> findByActive(@Param("active") boolean active);
 	public List<Ad> findByObjectId(@Param("objectId") String name);
 }

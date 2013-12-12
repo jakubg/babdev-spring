@@ -37,7 +37,8 @@ public class Ad {
 		this.id = id;
 	}
 	
-	private boolean active;
+	private Boolean active =  new Boolean(true);
+	
 	private String price;
 	private Date createdAt;
 	private Date modifiedAt;
