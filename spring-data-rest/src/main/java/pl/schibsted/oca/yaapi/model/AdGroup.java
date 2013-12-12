@@ -32,7 +32,6 @@ public class AdGroup {
     private Boolean active = new Boolean(true);
     
     @ManyToMany(fetch = FetchType.LAZY)
-    // TODO get rid of such filtering on entities
     @Where(clause = "active='1'")
     @JoinTable(name = "T_AD_GROUP_T_AD", joinColumns = { @JoinColumn(name = "ad_group_id") }, inverseJoinColumns = { @JoinColumn(name = "ad_id") })
     private List<Ad> ads;
